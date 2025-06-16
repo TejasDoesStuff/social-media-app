@@ -7,7 +7,6 @@ import {
   FiZap,
   FiAward,
   FiUsers,
-  FiUser,
   FiThumbsUp,
   FiMessageSquare,
   FiShare2,

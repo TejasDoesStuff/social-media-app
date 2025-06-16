@@ -6,7 +6,6 @@ import {
   FiSearch,
   FiSend,
   FiMoreVertical,
-  FiUser,
   FiUserPlus,
 } from "react-icons/fi";
 

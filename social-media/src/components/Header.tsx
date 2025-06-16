@@ -1,16 +1,14 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { FiBell, FiSearch, FiClock, FiPauseCircle } from "react-icons/fi";
+import { FiBell, FiSearch, FiClock, } from "react-icons/fi";
 import Link from "next/link";
 
 export function Header() {
   const [screenTimeLeft, setScreenTimeLeft] = useState(3600);
-  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
     const timer =
-      !isPaused &&
       setInterval(() => {
         setScreenTimeLeft((prev) => (prev > 0 ? prev - 1 : 0));
       }, 1000);
@@ -18,17 +16,21 @@ export function Header() {
     return () => {
       if (timer) clearInterval(timer);
     };
-  }, [isPaused]);
+  });
 
-  const formatTime = (seconds) => {
+interface FormatTimeProps {
+    seconds: number;
+}
+
+const formatTime = (seconds: FormatTimeProps["seconds"]): string => {
     const hrs = Math.floor(seconds / 3600);
     const mins = Math.floor((seconds % 3600) / 60);
     const secs = seconds % 60;
 
     return `${hrs.toString().padStart(2, "0")}:${mins
-      .toString()
-      .padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
-  };
+        .toString()
+        .padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
+};
 
   const getTimeColor = () => {
     if (screenTimeLeft < 600) return "text-red-500";

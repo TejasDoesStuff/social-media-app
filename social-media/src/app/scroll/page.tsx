@@ -1,22 +1,18 @@
-
 "use client";
 
 import React, { useState } from "react";
-import { motion } from "framer-motion";
 import {
   FiLock,
   FiUnlock,
   FiBook,
   FiActivity,
-  FiFilter,
-  FiArrowUp,
   FiAward,
 } from "react-icons/fi";
 import Link from "next/link";
 
 export default function ScrollPage() {
-  const [unlockedContent, setUnlockedContent] = useState<number[]>([0]); // First content unlocked by default
-  const [activityProgress, setActivityProgress] = useState<number>(35); // Progress percentage
+  const [unlockedContent, setUnlockedContent] = useState<number[]>([0]);
+  const [activityProgress, setActivityProgress] = useState<number>(35);
   const [filter, setFilter] = useState<string>("all");
 
   const educationalContent = [
@@ -96,17 +92,15 @@ export default function ScrollPage() {
   });
 
   const unlockContent = (id: number) => {
-    // In a real app, you would verify the user's physical activity first
+
     setUnlockedContent(prev => [...prev, id]);
   };
 
   const isContentUnlocked = (id: number) => unlockedContent.includes(id);
 
-  // Simulate activity tracking
   const simulateActivity = () => {
     setActivityProgress(prev => Math.min(100, prev + 15));
     
-    // Unlock content based on new progress
     educationalContent.forEach(content => {
       if (!isContentUnlocked(content.id) && 
           content.stepsRequired <= activityProgress * 100) {
@@ -167,8 +161,7 @@ export default function ScrollPage() {
             ></div>
           </div>
         </div>
-        
-        {/* Featured Content */}
+
         {filter === "all" && (
           <div className="mb-8">
             <h2 className="text-lg font-semibold text-gray-800 mb-4 flex items-center">
@@ -211,7 +204,7 @@ export default function ScrollPage() {
                     <p className="text-sm text-gray-600 mt-1">{content.description}</p>
                     {isContentUnlocked(content.id) ? (
                       <div className="mt-3">
-                        <p className="text-sm text-gray-500 italic mb-2">"{content.preview}"</p>
+                        <p className="text-sm text-gray-500 italic mb-2">&ldquo;{content.preview}&rdquo;</p>
                         <div className="flex items-center justify-between">
                           <Link href={`/scroll/${content.id}`}>
                             <span className="inline-block px-3 py-1.5 bg-indigo-50 text-indigo-600 rounded-lg text-sm font-medium">
@@ -276,7 +269,7 @@ export default function ScrollPage() {
                   <p className="text-sm text-gray-600 mt-1">{content.description}</p>
                   {isContentUnlocked(content.id) ? (
                     <div className="mt-3">
-                      <p className="text-sm text-gray-500 italic mb-2">"{content.preview}"</p>
+                      <p className="text-sm text-gray-500 italic mb-2">&ldquo;{content.preview}&rdquo;</p>
                       <div className="flex items-center justify-between">
                         <Link href={`/scroll/${content.id}`}>
                           <span className="inline-block px-3 py-1.5 bg-indigo-50 text-indigo-600 rounded-lg text-sm font-medium">

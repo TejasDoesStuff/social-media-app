@@ -5,12 +5,9 @@ import { motion } from "framer-motion";
 import { 
   FiCalendar, 
   FiClock, 
-  FiZap, 
   FiAward, 
   FiSmartphone, 
   FiActivity,
-  FiBarChart2,
-  FiFilter,
   FiChevronLeft,
   FiChevronRight
 } from "react-icons/fi";

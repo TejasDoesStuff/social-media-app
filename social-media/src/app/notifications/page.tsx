@@ -1,12 +1,10 @@
 "use client";
 
-import { Header } from "@/components/Header";
 import { motion } from "framer-motion";
 import {
   FiUser,
   FiMessageCircle,
   FiHeart,
-  FiCheckCircle,
   FiClock,
   FiAward,
 } from "react-icons/fi";

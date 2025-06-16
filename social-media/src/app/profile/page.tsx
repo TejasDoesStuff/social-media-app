@@ -1,6 +1,5 @@
 "use client";
 
-import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
   FiEdit2,
@@ -13,8 +12,6 @@ import {
   FiMessageSquare,
   FiShare2,
 } from "react-icons/fi";
-import Link from "next/link";
-import { Header } from "@/components/Header";
 
 export default function ProfilePage() {
   return (
